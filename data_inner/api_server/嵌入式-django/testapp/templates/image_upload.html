@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>圖片上傳</title>
+    <style>
+      .image-container { display: flex; flex-wrap: wrap; }
+      .image-item { margin: 10px; text-align: center; }
+      img { max-width: 200px; max-height: 200px; }
+    </style>
+  </head>
+  <body>
+    <h2>圖片上傳</h2>
+    
+    {% if message %}
+      <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="image" accept="image/*">
+      <button type="submit">上傳圖片</button>
+    </form>
+    
+    <h3>已上傳的圖片</h3>
+    <div class="image-container">
+      {% for file in files %}
+      <div class="image-item">
+        <img src="/media/{{ file }}" alt="{{ file }}">
+        <p>{{ file }}</p>
+        <a href="/image/download/{{ file }}/">下載</a>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html> 

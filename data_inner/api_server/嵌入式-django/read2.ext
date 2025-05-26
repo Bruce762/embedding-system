@@ -1,0 +1,49 @@
+Django + MySQL API 開發流程簡報報告
+
+一、前置準備
+
+1. 建立 Django 專案與應用
+透過命令提示字元（CMD）操作：
+
+django-admin.py startproject <專案名稱>
+cd <專案資料夾>
+python manage.py startapp <功能名稱>
+2. 專案設定調整
+打開 settings.py
+在 INSTALLED_APPS 中新增剛建立的應用名稱，如 gps、trips 等
+二、API 與資料庫整合操作流程
+
+1. 建立資料表
+在 {功能名稱}/views.py 中編寫對應動作/副函式/API
+定義資料模型（model），執行：
+python manage.py makemigrations
+python manage.py migrate
+三、API 功能撰寫與測試
+
+1. 資料上傳 API
+在 views.py 撰寫上傳功能，接收 POST 請求與資料。
+測試程式碼與結果圖對應範例：G001
+2. 資料查詢（下載）
+撰寫 API 接收查詢參數或返回全部資料
+範例程式與測試：G002
+支援下載全部資料、特定區間或條件查詢
+四、圖片處理功能 API
+
+1. 圖片上傳
+API 接收圖片資料並儲存
+對應範例測試程式與圖示：G005
+2. 修改與存放圖片
+支援圖片覆蓋、更新處理
+範例測試：G004
+3. 圖片下載
+提供圖片從伺服器下載功能
+對應範例測試程式與圖示：G004
+五、整合路由與啟動伺服器
+
+1. 加入路由
+打開 {專案名稱}/urls.py，將 API 副函式對應設定為網址路由。
+2. 更新資料庫與啟動服務
+使用 migrate 指令更新資料庫：
+python manage.py migrate
+執行伺服器：
+python manage.py runserver

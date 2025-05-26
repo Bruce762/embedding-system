@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>感測資料記錄</title>
+    <style>
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid black; padding: 8px; text-align: left; }
+      tr:nth-child(even) { background-color: #f2f2f2; }
+      .loading { text-align: center; padding: 20px; }
+    </style>
+  </head>
+  <body>
+    <h2>溫濕度記錄</h2>
+    <div id="loading" class="loading">載入中...</div>
+    <table id="dataTable" style="display: none;">
+      <thead>
+        <tr>
+          <th>時間</th>
+          <th>溫度 (°C)</th>
+          <th>濕度 (%)</th>
+        </tr>
+      </thead>
+      <tbody id="dataBody"></tbody>
+    </table>
+    <a href="/sensor/upload/">回到上傳頁面</a>
+    <a href="/serial/monitor/" style="margin-left: 15px;">串口監控</a>
+
+    <script>
+      async function loadData() {
+        try {
+          const response = await fetch('/sensor/data/');
+          const result = await response.json();
+          
+          if (result.status === 'success') {
+            const tbody = document.getElementById('dataBody');
+            tbody.innerHTML = '';
+            
+            result.data.forEach(item => {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${item.recorded_at}</td>
+                <td>${item.temperature}</td>
+                <td>${item.humidity}</td>
+              `;
+              tbody.appendChild(row);
+            });
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dataTable').style.display = 'table';
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          document.getElementById('loading').textContent = '載入失敗：' + error.message;
+        }
+      }
+
+      // 頁面載入時獲取數據
+      loadData();
+
+      // 每30秒更新一次數據
+      setInterval(loadData, 30000);
+    </script>
+  </body>
+</html> 

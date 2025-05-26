@@ -1,0 +1,68 @@
+Django + MySQL 開發教學報告
+
+一、開發環境準備
+
+1. 安裝 Django 與資料庫連接工具
+使用 pip 安裝 Django（建議使用 3.2 版以確保與 XAMPP 相容）：
+pip install django==3.2
+確認安裝成功：
+django-admin --version
+安裝 mysqlclient 以連接 MySQL 資料庫：
+pip install mysqlclient
+2. 安裝 XAMPP
+從 https://www.apachefriends.org/ 下載並安裝 XAMPP。
+啟動 xampp_control.exe 並啟動 Apache 和 MySQL。
+使用瀏覽器確認是否可正常進入 localhost/dashboard。
+3. 資料庫初始化設定
+建議建立以下資料夾路徑：
+C:\xampp\mysql\lib\plugin
+開啟 localhost/phpmyadmin/ 進行資料庫管理，可新增使用者帳號（如：testt / test）。
+二、建立 Django 專案
+
+1. 專案與應用建立
+django-admin.py startproject <專案名稱>
+cd <專案資料夾>
+python manage.py startapp <應用名稱>
+2. 各檔案功能簡述
+settings.py：設定檔。
+urls.py：路由設定。
+models.py：資料庫結構。
+views.py：API 功能邏輯。
+3. 加入 App 到設定檔
+修改 settings.py 的 INSTALLED_APPS，加入剛建立的 App 名稱。
+三、建立與連接 MySQL 資料庫
+
+1. 在 phpMyAdmin 建立資料庫
+命名資料庫，無需額外設定即可。
+2. 在 settings.py 中設定 MySQL 連線資訊
+四、建立資料模型與 API 功能
+
+1. 資料表模型撰寫與建立
+在 models.py 撰寫資料結構（如：溫溼度紀錄）。
+使用以下指令建立資料表：
+python manage.py makemigrations
+python manage.py migrate
+2. 建立資料上傳與查詢 API
+在 views.py 撰寫 API 函式（使用 POST 接收參數）。
+在 urls.py 中設定路由指向對應的 views。
+五、Templates 前端頁面整合
+
+1. 建立 Templates 資料夾與 HTML 頁面
+建立：
+sensor_upload.html
+sensor_data.html
+支援資料動態渲染。
+2. 啟動伺服器與測試
+python manage.py runserver 127.0.0.1:8000
+上傳資料頁面：http://127.0.0.1:8000/sensor/upload/
+查詢資料頁面：http://127.0.0.1:8000/sensor/data/
+六、進階功能：圖片上傳與下載
+
+1. 圖片上傳 API
+在 views.py 撰寫圖片處理 API。
+自動建立 media 資料夾以儲存圖片。
+設定 settings.py 與 url.py 路徑。
+2. 前端頁面 image_upload.html
+提供上傳圖片介面，支援測試與即時顯示。
+3. 圖片下載 API
+支援將圖片下載至指定資料夾或位置。

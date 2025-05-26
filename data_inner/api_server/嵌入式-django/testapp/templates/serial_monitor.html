@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 串口監控</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .status-box {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .status-running {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .status-stopped {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .control-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-start {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-stop {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-request {
+            background-color: #007bff;
+            color: white;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .data-section {
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        #status-message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        .refresh-info {
+            font-size: 12px;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: #007bff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ESP32 串口監控</h1>
+        
+        <div id="status-message"></div>
+        {% csrf_token %}
+        
+        <div id="status-box" class="status-box">
+            <strong>監控狀態：</strong> <span id="monitor-status">載入中...</span><br>
+            <strong>串口：</strong> <span id="serial-port">載入中...</span><br>
+            <strong>波特率：</strong> <span id="baud-rate">載入中...</span><br>
+            <strong>伺服器時間：</strong> <span id="server-time">載入中...</span>
+            <div class="refresh-info">頁面每10秒自動刷新一次</div>
+        </div>
+        
+        <div class="control-panel">
+            <div>
+                <input type="text" id="port" placeholder="輸入串口" value="/dev/cu.usbserial-1140">
+                <button id="startBtn" class="btn-start">啟動監控</button>
+                <button id="stopBtn" class="btn-stop">停止監控</button>
+                <button id="requestBtn" class="btn-request">
+                    <span id="loading-icon" class="loading" style="display: none;"></span>
+                    請求溫濕度數據
+                </button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2>最新數據</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>時間</th>
+                        <th>溫度 (°C)</th>
+                        <th>濕度 (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table"></tbody>
+            </table>
+        </div>
+        
+        <a href="/sensor/data/" class="back-link">查看所有數據</a>
+    </div>
+    
+    <script>
+        let monitorStatus = false;
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+        // 顯示狀態訊息
+        function showStatusMessage(message, type = 'info') {
+            const messageElement = document.getElementById('status-message');
+            messageElement.textContent = message;
+            messageElement.className = type;
+            messageElement.style.display = 'block';
+            
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+            }, 5000);
+        }
+        
+        // 更新按鈕狀態
+        function updateButtonStates() {
+            document.getElementById('startBtn').disabled = monitorStatus;
+            document.getElementById('stopBtn').disabled = !monitorStatus;
+            document.getElementById('requestBtn').disabled = !monitorStatus;
+        }
+        
+        // 獲取監控狀態
+        async function getStatus() {
+            try {
+                const response = await fetch('/serial/monitor/status/', {
+                    headers: {
+                        'X-CSRFToken': csrfToken
+                    }
+                });
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    const statusData = data.data;
+                    monitorStatus = statusData.is_running;
+                    
+                    // 更新狀態框
+                    document.getElementById('monitor-status').textContent = monitorStatus ? '正在運行' : '已停止';
+                    document.getElementById('serial-port').textContent = statusData.serial_port || '未設置';
+                    document.getElementById('baud-rate').textContent = statusData.baud_rate;
+                    document.getElementById('server-time').textContent = statusData.server_time;
+                    document.getElementById('status-box').className = 
+                        `status-box ${monitorStatus ? 'status-running' : 'status-stopped'}`;
+                    
+                    // 更新數據表格
+                    const tbody = document.getElementById('data-table');
+                    tbody.innerHTML = '';
+                    
+                    if (statusData.latest_records && statusData.latest_records.length > 0) {
+                        statusData.latest_records.forEach(record => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${record.recorded_at}</td>
+                                <td>${record.temperature}</td>
+                                <td>${record.humidity}</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    } else {
+                        tbody.innerHTML = `
+                            <tr>
+                                <td colspan="3" style="text-align: center;">
+                                    ${monitorStatus ? '正在等待數據...' : '尚無數據，請先啟動監控'}
+                                </td>
+                            </tr>
+                        `;
+                    }
+                    
+                    updateButtonStates();
+                }
+            } catch (error) {
+                showStatusMessage('獲取狀態失敗：' + error.message, 'error');
+            }
+        }
+        
+        // 控制監控
+        async function controlMonitor(action) {
+            const loadingIcon = document.getElementById('loading-icon');
+            loadingIcon.style.display = 'inline-block';
+            
+            try {
+                const data = { action };
+                if (action === 'start') {
+                    const port = document.getElementById('port').value;
+                    if (port) {
+                        data.port = port;
+                    }
+                }
+                
+                const response = await fetch('/serial/monitor/control/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                showStatusMessage(result.message, result.status);
+                
+                if (result.status === 'success') {
+                    await getStatus();
+                }
+            } catch (error) {
+                showStatusMessage('操作失敗：' + error.message, 'error');
+            } finally {
+                loadingIcon.style.display = 'none';
+            }
+        }
+        
+        // 綁定按鈕事件
+        document.getElementById('startBtn').addEventListener('click', () => controlMonitor('start'));
+        document.getElementById('stopBtn').addEventListener('click', () => controlMonitor('stop'));
+        document.getElementById('requestBtn').addEventListener('click', () => controlMonitor('request_data'));
+        
+        // 初始化頁面
+        getStatus();
+        
+        // 自動刷新
+        setInterval(getStatus, 10000);
+    </script>
+</body>
+</html> 

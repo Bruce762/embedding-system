@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>感測資料紀錄</title>
+</head>
+<body>
+    <h2>感測資料列表</h2>
+    <table border="1">
+        <tr>
+            <th>時間</th>
+            <th>溫度 (℃)</th>
+            <th>濕度 (%)</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.recorded_at }}</td>
+            <td>{{ item.temperature }}</td>
+            <td>{{ item.humidity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/sensor/upload/">返回上傳表單</a>
+</body>
+</html>

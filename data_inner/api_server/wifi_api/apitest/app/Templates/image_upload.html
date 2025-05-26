@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>圖片上傳與下載</title>
+</head>
+<body>
+    <h2>上傳圖片</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" />
+        <button type="submit">上傳</button>
+    </form>
+
+    <p style="color: green">{{ message }}</p>
+
+    <h3>已上傳圖片列表</h3>
+    <ul>
+        {% for file in files %}
+        <li>
+            {{ file }} -
+            <img src="/media/{{ file }}" style="max-width: 200px" />
+            <a href="/media/{{ file }}" target="_blank">查看</a>
+            <a href="{% url 'image_download' file %}">下載</a>
+        </li>
+        {% empty %}
+        <li>沒有上傳的圖片。</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

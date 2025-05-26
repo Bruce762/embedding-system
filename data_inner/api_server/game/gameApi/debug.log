@@ -1,0 +1,395 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 4.0, "responseTime": 1153}
+解析後的數據 - distance: 4.0, responseTime: 1153
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_121750.jpg
+圖片保存成功
+資料庫操作失敗: (1054, "Unknown column 'image' in 'field list'")
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 86
+"POST /upload/ HTTP/1.1" 400 86
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 2.6, "responseTime": 1039}
+解析後的數據 - distance: 2.6, responseTime: 1039
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_121802.jpg
+圖片保存成功
+資料庫操作失敗: (1054, "Unknown column 'image' in 'field list'")
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 86
+"POST /upload/ HTTP/1.1" 400 86
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 2.1, "responseTime": 1014}
+解析後的數據 - distance: 2.1, responseTime: 1014
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_121829.jpg
+圖片保存成功
+資料庫操作失敗: (1054, "Unknown column 'image' in 'field list'")
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 86
+"POST /upload/ HTTP/1.1" 400 86
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.2, "responseTime": 1294}
+解析後的數據 - distance: 3.2, responseTime: 1294
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_121913.jpg
+圖片保存成功
+資料庫操作失敗: (1054, "Unknown column 'image' in 'field list'")
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 86
+"POST /upload/ HTTP/1.1" 400 86
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/models.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/models.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.0, "responseTime": 1036}
+解析後的數據 - distance: 3.0, responseTime: 1036
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_122035.jpg
+圖片保存成功
+資料庫操作失敗: (1054, "Unknown column 'image' in 'field list'")
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 86
+"POST /upload/ HTTP/1.1" 400 86
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.9, "responseTime": 1411}
+解析後的數據 - distance: 3.9, responseTime: 1411
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_122310.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/__init__.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/__init__.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/urls.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/gameApi/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 4.7, "responseTime": 1145}
+解析後的數據 - distance: 4.7, responseTime: 1145
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_123713.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 2.4, "responseTime": 1046}
+解析後的數據 - distance: 2.4, responseTime: 1046
+攝像頭縮放倍率設置為 1 倍
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_124750.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 4.0, "responseTime": 1836}
+解析後的數據 - distance: 4.0, responseTime: 1836
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_125812.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.5, "responseTime": 1080}
+解析後的數據 - distance: 3.5, responseTime: 1080
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_131459.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 0.9, "responseTime": 2064}
+解析後的數據 - distance: 0.9, responseTime: 2064
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_131913.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.5, "responseTime": 1359}
+解析後的數據 - distance: 3.5, responseTime: 1359
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_132958.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+/Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/app/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 2.7, "responseTime": 2898}
+解析後的數據 - distance: 2.7, responseTime: 2898
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+無法拍攝照片
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 31
+"POST /upload/ HTTP/1.1" 400 31
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.0, "responseTime": 1344}
+解析後的數據 - distance: 3.0, responseTime: 1344
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_141016.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+- Broken pipe from ('172.20.10.3', 55265)
+
+- Broken pipe from ('172.20.10.3', 55265)
+
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 7.5, "responseTime": 1488}
+解析後的數據 - distance: 7.5, responseTime: 1488
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/15/image_20250515_145345.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 4.8, "responseTime": 1}
+解析後的數據 - distance: 4.8, responseTime: 1
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_022938.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 5.5, "responseTime": 574}
+解析後的數據 - distance: 5.5, responseTime: 574
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+無法拍攝照片
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 31
+"POST /upload/ HTTP/1.1" 400 31
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 0.4, "responseTime": 456}
+解析後的數據 - distance: 0.4, responseTime: 456
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+無法拍攝照片
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 31
+"POST /upload/ HTTP/1.1" 400 31
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 6.8, "responseTime": 669}
+解析後的數據 - distance: 6.8, responseTime: 669
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_024753.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.1, "responseTime": 1}
+解析後的數據 - distance: 3.1, responseTime: 1
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_024812.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 0.4, "responseTime": 1208}
+解析後的數據 - distance: 0.4, responseTime: 1208
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_025106.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 0.4, "responseTime": 802}
+解析後的數據 - distance: 0.4, responseTime: 802
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_025129.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 3.5, "responseTime": 852}
+解析後的數據 - distance: 3.5, responseTime: 852
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_025328.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 5.4, "responseTime": 7036}
+解析後的數據 - distance: 5.4, responseTime: 7036
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+無法拍攝照片
+Bad Request: /upload/
+Bad Request: /upload/
+"POST /upload/ HTTP/1.1" 400 31
+"POST /upload/ HTTP/1.1" 400 31
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 1.8, "responseTime": 1198}
+解析後的數據 - distance: 1.8, responseTime: 1198
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_033156.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42
+收到 POST 請求，Content-Type: application/json
+請求內容: {"distance": 0.9, "responseTime": 2829}
+解析後的數據 - distance: 0.9, responseTime: 2829
+攝像頭已設定為廣角模式
+自動對焦設置狀態: 不支援
+攝像頭暖機完成
+創建目錄: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22
+準備保存圖片到: /Users/wangguanzhe/Desktop/code/embedded_system/data_inner/api_server/game/gameApi/media/sensor_images/2025/5/22/image_20250522_033254.jpg
+圖片保存成功
+資料庫記錄創建成功
+"POST /upload/ HTTP/1.1" 200 42
+"POST /upload/ HTTP/1.1" 200 42

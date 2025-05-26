@@ -1,0 +1,175 @@
+[
+    {
+        "id": "891a6d77456f6910",
+        "type": "tab",
+        "label": "流程2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ab01ab01ab01ab01",
+        "type": "http in",
+        "z": "891a6d77456f6910",
+        "name": "GET /ranking",
+        "url": "/ranking",
+        "method": "get",
+        "upload": false,
+        "x": 550,
+        "y": 440,
+        "wires": [
+            [
+                "ab02ab02ab02ab02"
+            ]
+        ]
+    },
+    {
+        "id": "ab03ab03ab03ab03",
+        "type": "http in",
+        "z": "891a6d77456f6910",
+        "name": "GET /ranking.json",
+        "url": "/ranking.json",
+        "method": "get",
+        "upload": false,
+        "x": 1010,
+        "y": 520,
+        "wires": [
+            [
+                "ab02ab02ab02ab02"
+            ]
+        ]
+    },
+    {
+        "id": "ab02ab02ab02ab02",
+        "type": "function",
+        "z": "891a6d77456f6910",
+        "name": "Build SQL",
+        "func": "msg.topic = \"SELECT id, distance, responseTime, timestamp, image FROM sensor_data ORDER BY responseTime ASC\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 700,
+        "wires": [
+            [
+                "ab05ab05ab05ab05"
+            ]
+        ]
+    },
+    {
+        "id": "ab05ab05ab05ab05",
+        "type": "mysql",
+        "z": "891a6d77456f6910",
+        "mydb": "cfg_mysql",
+        "name": "gameData",
+        "x": 1090,
+        "y": 680,
+        "wires": [
+            [
+                "ab06ab06ab06ab06",
+                "ab08ab08ab08ab08",
+                "ab0bab0bab0bab0b"
+            ]
+        ]
+    },
+    {
+        "id": "ab06ab06ab06ab06",
+        "type": "function",
+        "z": "891a6d77456f6910",
+        "name": "Build HTML (meta)",
+        "func": "let rows=msg.payload;\nlet html=`<!DOCTYPE html><html lang='zh-TW'><head><meta charset='UTF-8'><meta http-equiv='refresh' content='5'><title>反應速度排行榜</title><style>*,*:before,*:after{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans','Helvetica Neue',Arial,'PingFang TC','Heiti TC',sans-serif;background:radial-gradient(ellipse at top,#1b1b1b 0%,#121212 100%);color:#f5f5f7;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:40px 12px;}h1{font-size:2.2rem;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,#ff7e5f,#feb47b);-webkit-background-clip:text;color:transparent;margin:0 0 24px;text-align:center;}.card{backdrop-filter:blur(12px) saturate(160%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,0.4);padding:24px;width:100%;max-width:960px;}table{width:100%;border-collapse:collapse;}th,td{padding:12px 10px;text-align:center;}th{font-weight:600;font-size:0.95rem;border-bottom:2px solid rgba(255,255,255,0.2);}tr:nth-child(even){background:rgba(255,255,255,0.03);}tr:hover{background:rgba(255,255,255,0.07);}img{height:64px;width:auto;border-radius:8px;object-fit:cover;}.badge{display:inline-block;padding:4px 12px;border-radius:999px;font-weight:700;}.top1{background:#ffd700;color:#000;}.top2{background:#c0c0c0;color:#000;}.top3{background:#cd7f32;color:#000;}@media(max-width:600px){body{padding:24px 8px;}h1{font-size:1.6rem;}img{height:48px;}th,td{padding:8px 6px;font-size:0.85rem;}}</style></head><body><div class='card'><h1>反應速度排行榜</h1><table><thead><tr><th>名次</th><th>距離 (cm)</th><th>反應 (ms)</th><th>時間戳</th><th>截圖</th></tr></thead><tbody>`;\nrows.forEach((r,i)=>{let k=i+1;let cls=k===1?'top1':k===2?'top2':k===3?'top3':'';html+=`<tr><td><span class='badge ${cls}'>${k}</span></td><td>${r.distance}</td><td>${r.responseTime}</td><td>${new Date(r.timestamp).toLocaleString()}</td><td><img src='/${r.image}'></td></tr>`});\nhtml+=`</tbody></table></div></body></html>`;\nmsg.headers={\"Content-Type\":\"text/html; charset=utf-8\"};\nmsg.payload=html;\nreturn msg;",
+        "outputs": 1,
+        "x": 1290,
+        "y": 860,
+        "wires": [
+            [
+                "ab09ab09ab09ab09"
+            ]
+        ]
+    },
+    {
+        "id": "ab09ab09ab09ab09",
+        "type": "http response",
+        "z": "891a6d77456f6910",
+        "name": "200 /ranking",
+        "statusCode": "",
+        "headers": {},
+        "x": 1490,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ab0dab0dab0dab0d",
+        "type": "inject",
+        "z": "891a6d77456f6910",
+        "name": "每 5 秒",
+        "repeat": "5",
+        "once": true,
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "ab02ab02ab02ab02"
+            ]
+        ]
+    },
+    {
+        "id": "ab08ab08ab08ab08",
+        "type": "function",
+        "z": "891a6d77456f6910",
+        "name": "To JSON",
+        "func": "msg.headers={\"Content-Type\":\"application/json\"};return msg;",
+        "outputs": 1,
+        "x": 1320,
+        "y": 560,
+        "wires": [
+            [
+                "ab0aab0aab0aab0a"
+            ]
+        ]
+    },
+    {
+        "id": "ab0aab0aab0aab0a",
+        "type": "http response",
+        "z": "891a6d77456f6910",
+        "name": "200 /ranking.json",
+        "statusCode": "",
+        "headers": {},
+        "x": 1550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ab0bab0bab0bab0b",
+        "type": "function",
+        "z": "891a6d77456f6910",
+        "name": "Rows → ui_table",
+        "func": "msg.payload=msg.payload.map((r,i)=>({rank:i+1,...r}));return msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 340,
+        "wires": [
+            [
+                "ab0eab0eab0eab0e"
+            ]
+        ]
+    },
+    {
+        "id": "cfg_mysql",
+        "type": "MySQLdatabase",
+        "name": "gameData",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "gameData",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]

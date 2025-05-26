@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>上傳感測資料</title>
+    <style>
+      .message { padding: 10px; margin: 10px 0; border-radius: 4px; }
+      .success { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+      .error { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+    </style>
+  </head>
+  <body>
+    <h2>輸入感測資料</h2>
+    <div id="message" style="display: none;"></div>
+    <form id="sensorForm">
+      {% csrf_token %}
+      溫度 (°C):<input type="number" name="temperature" step="0.1" required /><br />
+      濕度 (%):<input type="number" name="humidity" step="0.1" required /><br />
+      <button type="submit">上傳</button>
+    </form>
+    <a href="/sensor/data/">查看所有資料</a>
+
+    <script>
+      document.getElementById('sensorForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const messageDiv = document.getElementById('message');
+        
+        try {
+          const response = await fetch('/sensor/upload/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            },
+            body: JSON.stringify({
+              temperature: parseFloat(formData.get('temperature')),
+              humidity: parseFloat(formData.get('humidity'))
+            })
+          });
+          
+          const data = await response.json();
+          
+          messageDiv.textContent = data.status === 'success' ? 
+            '資料上傳成功！' : 
+            `錯誤：${data.message}`;
+          messageDiv.className = `message ${data.status}`;
+          messageDiv.style.display = 'block';
+          
+          if (data.status === 'success') {
+            this.reset();
+            setTimeout(() => {
+              window.location.href = '/sensor/data/';
+            }, 1000);
+          }
+        } catch (error) {
+          messageDiv.textContent = '上傳失敗：' + error.message;
+          messageDiv.className = 'message error';
+          messageDiv.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html> 

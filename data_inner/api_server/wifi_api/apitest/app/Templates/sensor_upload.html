@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>上傳感測資料</title>
+</head>
+<body>
+    <h2>輸入感測資料</h2>
+    <form method="POST">
+        {% csrf_token %}
+        溫度 (℃): 
+        <input type="number" name="temperature" step="0.1" /><br />
+        濕度 (%): 
+        <input type="number" name="humidity" step="0.1" /><br />
+        <button type="submit">上傳</button>
+    </form>
+    <a href="/sensor/list/">查看所有資料</a>
+</body>
+</html>

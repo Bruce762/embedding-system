@@ -1,0 +1,26 @@
+四、PHP 上傳與顯示頁面
+建立 upload.php 與 display.php
+
+將文字檔副檔名改為 .php。
+放入 XAMPP 的 htdocs 目錄。
+確認從 ESP32 上傳資料成功寫入資料庫。
+五、Node.js 與 Node-RED 安裝與配置
+安裝步驟
+
+下載並安裝 Node.js：https://nodejs.org/zh-tw
+使用指令 npm install -g --unsafe-perm node-red 安裝 Node-RED。
+啟動 Node-RED：輸入 node-red。
+開啟瀏覽器進入 http://伺服器IP:1880。
+Node-RED 配置
+
+安裝 Palette：搜尋並安裝 dashboard 與 mysql。
+拖拉節點組合流程：
+inject: 每秒觸發一次。
+function: 撰寫 SQL 查詢語法，如查詢 timestamp、temperature、humidity。
+mysql: 設定連線資料庫資訊（IP、帳密、資料庫名）。
+switch: 根據資料變動判斷是否繼續流程。
+chart: 可視化資料圖表。
+debug: 顯示除錯資訊。
+視覺化結果：
+在瀏覽器輸入 http://伺服器IP:1880/ui 查看圖表。
+Chart 更新頻率可設定為每分鐘或每 30 筆資料。

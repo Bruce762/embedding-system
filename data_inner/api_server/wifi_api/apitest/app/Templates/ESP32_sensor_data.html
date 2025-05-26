@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <title>溫溼度記錄</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center">最新溫溼度記錄</h2>
+    <div style="text-align: center; margin-bottom: 10px;">
+        <button onclick="location.reload()">重新整理</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>時間</th>
+            <th>溫度 (°C)</th>
+            <th>濕度 (%)</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.timestamp }}</td>
+            <td>{{ record.temperature }}</td>
+            <td>{{ record.humidity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
